@@ -1,9 +1,13 @@
 {
-    "name": "jfcherng/php-diff",
+    "name": "kwvanderlinde/php-diff",
     "description": "A comprehensive library for generating differences between two strings in multiple formats (unified, side by side HTML etc).",
     "type": "library",
     "license": "BSD-3-Clause",
     "authors": [
+        {
+          "name": "Kenneth VanderLinde",
+          "email": "kwvanderlinde@gmail.com"
+        },
         {
             "name": "Jack Cherng",
             "email": "jfcherng@gmail.com"
@@ -24,9 +28,7 @@
         }
     },
     "require": {
-        "php": "^7.1.3",
-        "jfcherng/php-levenshtein-distance": "^2.3",
-        "jfcherng/php-mb-string": "^1.2.3"
+        "php": "^7.0",
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.13",

@@ -305,9 +305,9 @@ class SequenceMatcher
 
         $matchingBlocks = [];
         while (!empty($queue)) {
-            [$alo, $ahi, $blo, $bhi] = \array_pop($queue);
+            list($alo, $ahi, $blo, $bhi) = \array_pop($queue);
             $x = $this->findLongestMatch($alo, $ahi, $blo, $bhi);
-            [$i, $j, $k] = $x;
+            list($i, $j, $k) = $x;
             if ($k) {
                 $matchingBlocks[] = $x;
                 if ($alo < $i && $blo < $j) {
@@ -337,7 +337,7 @@ class SequenceMatcher
         $i1 = $j1 = $k1 = 0;
         $nonAdjacent = [];
         foreach ($matchingBlocks as $block) {
-            [$i2, $j2, $k2] = $block;
+            list($i2, $j2, $k2) = $block;
             if ($i1 + $k1 === $i2 && $j1 + $k1 === $j2) {
                 $k1 += $k2;
             } else {
@@ -395,7 +395,7 @@ class SequenceMatcher
 
         $blocks = $this->getMatchingBlocks();
         foreach ($blocks as $block) {
-            [$ai, $bj, $size] = $block;
+            list($ai, $bj, $size) = $block;
             if ($i < $ai && $j < $bj) {
                 $tag = static::OPCODE_REPLACE;
             } elseif ($i < $ai) {
@@ -457,7 +457,7 @@ class SequenceMatcher
 
         $lastItem = \count($opcodes) - 1;
         if ($opcodes[$lastItem][0] === static::OPCODE_EQUAL) {
-            [$tag, $i1, $i2, $j1, $j2] = $opcodes[$lastItem];
+            list($tag, $i1, $i2, $j1, $j2) = $opcodes[$lastItem];
             $opcodes[$lastItem] = [
                 $tag,
                 $i1,
@@ -470,7 +470,7 @@ class SequenceMatcher
         $maxRange = $context * 2;
         $groups = $group = [];
         foreach ($opcodes as $code) {
-            [$tag, $i1, $i2, $j1, $j2] = $code;
+            list($tag, $i1, $i2, $j1, $j2) = $code;
             if ($tag === static::OPCODE_EQUAL && $i2 - $i1 > $maxRange) {
                 $group[] = [
                     $tag,
