@@ -77,7 +77,7 @@ class SequenceMatcher
      * @param null|callable $junkCallback either an array or string that references a callback function (if there is one) to determine 'junk' characters
      * @param array         $options      the options
      */
-    public function __construct(array $a, array $b, ?callable $junkCallback = null, array $options = [])
+    public function __construct(array $a, array $b, callable $junkCallback = null, array $options = [])
     {
         $this->a = [];
         $this->b = [];
