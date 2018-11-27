@@ -93,7 +93,7 @@ class SequenceMatcher
      *
      * @return self
      */
-    public function setOptions(array $options): self
+    public function setOptions(array $options): SequenceMatcher
     {
         $this->options = $options + static::$defaultOptions;
 
@@ -108,7 +108,7 @@ class SequenceMatcher
      *
      * @return self
      */
-    public function setSequences(array $a, array $b): self
+    public function setSequences(array $a, array $b): SequenceMatcher
     {
         $this->setSeq1($a)->setSeq2($b);
 
@@ -123,7 +123,7 @@ class SequenceMatcher
      *
      * @return self
      */
-    public function setSeq1(array $a): self
+    public function setSeq1(array $a): SequenceMatcher
     {
         if ($this->a !== $a) {
             $this->a = $a;
@@ -142,7 +142,7 @@ class SequenceMatcher
      *
      * @return self
      */
-    public function setSeq2(array $b): self
+    public function setSeq2(array $b): SequenceMatcher
     {
         if ($this->b !== $b) {
             $this->b = $b;
@@ -530,7 +530,7 @@ class SequenceMatcher
      *
      * @return self
      */
-    protected function chainB(): self
+    protected function chainB(): SequenceMatcher
     {
         $length = \count($this->b);
         $this->b2j = [];
